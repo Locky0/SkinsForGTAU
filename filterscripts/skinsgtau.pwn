@@ -144,22 +144,19 @@ public OnFilterScriptInit()
 	for(new i; i < sizeof(files_skin_dff_III); i++) {
 		format(filedff, sizeof(filedff), "%s%s",DIR_III,files_skin_dff_III[i]);
 		format(filetxd, sizeof(filetxd), "%s%s",DIR_III,files_skin_txd_III[i]);
-		AddCharModel(0, SkinsID[0][i]=lastskinid++, filedff, filetxd);
-		//printf("AddCharModel(%i, %i, \"%s\", \"%s\");", 0, SkinsID[0][i], filedff, filetxd);
+		AddCharModel(0, SkinsID[0][i]=lastskinid++, filedff, filetxd);		
  	}
 	// Modelos do GTA VC
 	for(new i; i < sizeof(files_skin_dff_vc); i++) {
 		format(filedff, sizeof(filedff), "%s%s",DIR_VC,files_skin_dff_vc[i]);
 		format(filetxd, sizeof(filetxd), "%s%s",DIR_VC,files_skin_txd_vc[i]);
-		AddCharModel(0, SkinsID[1][i]=lastskinid++, filedff, filetxd);
-		//printf("AddCharModel(%i, %i, \"%s\", \"%s\");", 0, SkinsID[1][i], filedff, filetxd);
+		AddCharModel(0, SkinsID[1][i]=lastskinid++, filedff, filetxd);		
 	}
 	// Modelos do GTA LCS
     for(new i; i < sizeof(files_skin_dff_lcs); i++) {
 		format(filedff, sizeof(filedff), "%s%s",DIR_LCS,files_skin_dff_lcs[i]);
 		format(filetxd, sizeof(filetxd), "%s%s",DIR_LCS,files_skin_txd_lcs[i]);
-		AddCharModel(0, SkinsID[2][i]=lastskinid++, filedff, filetxd);
-		//printf("AddCharModel(%i, %i, \"%s\", \"%s\");", 0, SkinsID[2][i], filedff, filetxd);
+		AddCharModel(0, SkinsID[2][i]=lastskinid++, filedff, filetxd);		
  	}
  	/////////////////////////////////////
 	if(!fexist("skins_gtaiii.txt")) {
@@ -206,9 +203,7 @@ public OnFilterScriptInit()
 public OnPlayerModelSelection(playerid, response, listid, modelid)
 {
 	if((listid == SelectSkinIII || listid == SelectSkinVC || listid == SelectSkinLCS)) {
-        if(!response) return CallLocalFunction("OnPlayerCommandText", "ds", playerid, "/cskin");
-		//new str[128]; format(str,sizeof(str), "Você selecionou a skin %i", modelid);
-		//SendClientMessage(playerid, 0xFFFF00FF, str);
+            if(!response) return CallLocalFunction("OnPlayerCommandText", "ds", playerid, "/cskin");
 	    return SetPlayerSkin(playerid, modelid);
 	}
 	return 1;
